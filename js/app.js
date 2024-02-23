@@ -2,12 +2,15 @@ function elem (str) {
     return document.querySelector(str);
 }
 function displayAll () {
-    blogData.forEach(blog => {
+
+    // viewContainer.innerHTML +=    `<div id="${blog.id}">`;
+
+    f_blogs.forEach(blog => {
     
         
         let html = `
         
-        <div class="card">
+        <div class="card" id="blog${blog.id}">
             <div class="card-img-top">
                 <img src="${blog.img}" alt="">
             </div>
@@ -20,11 +23,11 @@ function displayAll () {
     
         viewContainer.innerHTML += html;
         
-        blogComment.forEach(comment => {
+        f_comment.forEach(comment => {
             commentHTML = '';
             if (comment.post_id == blog.id) {
                 commentHTML +=  `
-                <div class="comment">
+                <div class="comment comment${blog.id}">
                     <div class="comment-img-top">
                         <img src="${comment.auth_avatar}" alt="">
                     </div>
@@ -36,64 +39,17 @@ function displayAll () {
                 `;
             }
             viewContainer.innerHTML += commentHTML;
-        }) 
-    
-        
-        
+        })       
     })
     
+    // viewContainer.innerHTML +=  `</div>`;
     };
-
 
 let viewContainer = elem('#viewCont');
 let commentHTML = '';
 
-function displayCards (cat) {
-blogData.forEach(blog => {
-    console.log(cat)
-    if (cat == blog.category) {
 
 
-
-        let html = `
-        
-        <div class="card">
-            <div class="card-img-top">
-                <img src="${blog.img}" alt="">
-            </div>
-            <div class="card-body">
-                <div class="card-title">${blog.title}</div>
-                <div class="card-body">${blog.body}</div>
-                <div class="">${blog.comment_count}</div>
-            </div>
-        </div>
-        `;
-
-        viewContainer.innerHTML += html;
-        
-        blogComment.forEach(comment => {
-            commentHTML = '';
-            if (comment.post_id == blog.id) {
-                commentHTML +=  `
-                <div class="comment">
-                    <div class="comment-img-top">
-                        <img src="${comment.auth_avatar}" alt="">
-                    </div>
-                    <div class="comment-body">
-                        <div class="comment-title">${comment.author}</div>
-                        <div class="comment-body">${comment.comment}</div>
-                    </div>
-                </div>        
-                `;
-            }
-            viewContainer.innerHTML += commentHTML;
-        }) 
-
-    };
-    
-});
-
-};
 
 // returns array of categories 
 let categories = [];
