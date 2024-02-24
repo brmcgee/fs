@@ -537,7 +537,7 @@ let f_comment = [
       },
       {
         id: "2",
-        author: "XinGaDoo",
+        author: "Blue Man",
         title: "What Are The Different Types of Grouper?",
         body: "Grouper is a common and favorite species you will find when you’re along the Gulf of Mexico or in many places in the Caribbean.  There is more than one type of Grouper in the water, and they range in size, what they eat, and where they live.",
         category: "Aquatic",
@@ -545,7 +545,7 @@ let f_comment = [
         reg_date: "2024-02-23 19:23:58",
         comment_count: "5",
         author_id: "15",
-        author_avatar: "https://www.brmcontractors.net/blog/assets/gallery/brian.jpg"
+        author_avatar: "https://tse1.mm.bing.net/th?id=OIP.AcexgUGeFcxhSyKXoOC5WQHaEK&pid=Api&P=0&h=220"
       },
       {
         id: "3",
