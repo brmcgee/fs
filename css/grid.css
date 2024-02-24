@@ -4,7 +4,7 @@
     grid-area: -topbar;
     height: 100px;
     width: 100%;
-    /* background-color: rgba(16, 30, 236, 0.2); */
+    background-color: rgba(34, 5, 23, 0.2);
 }
 .main {
     grid-area: -main;
