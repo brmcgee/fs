@@ -40,8 +40,7 @@ function displayAll () {
                         </div>
                         <div class="comment-body">
                             <div class="comment-title">${comment.author}</div>
-                            <div class="comment-body">${comment.comment}</div>
-                        </div>
+                            <div class="comment-body">${comment.comment}</div>                        </div>
                     </div>        
                     `;
                 }
@@ -62,7 +61,7 @@ function displayUsers () {
     
         controlPanelHtml = ` 
             <div class="user-container">
-                <p class="user-name">User : ${user.username}</p>
+                <p class="user-name">${user.user_id} - ${user.username}</p>
                 <p class="user-password">Password: ${user.userpassword}</p>
             </div>
         `;
