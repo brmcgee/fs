@@ -14,37 +14,44 @@ function elem (str) {
 function displayAll () {
     f_blogs.forEach(blog => {
     
-        let html = ` 
-            <div class="card" id="blog${blog.id}">
-                <div class="card-img-top">
-                    <img src="${blog.img}" alt="">
+        if (blog.category.trim() === "Military") {
+
+
+            let html = ` 
+                <div class="card" id="blog${blog.id}">
+                    <div class="card-img-top">
+                        <img src="${blog.img}" alt="">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-title">${blog.title}</div>
+                        <div class="card-body">${blog.body}</div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="card-title">${blog.title}</div>
-                    <div class="card-body">${blog.body}</div>
-                </div>
-            </div>
-        `;
-        viewContainer.innerHTML += html;
+            `;
+            viewContainer.innerHTML += html;
+            
+            f_comment.forEach(comment => {
+                commentHTML = '';
+                if (comment.post_id == blog.id) {
+                    commentHTML +=  `
+                    <div class="comment comment${blog.id}">
+                        <div class="comment-img-top">
+                            <img src="${comment.auth_avatar}" alt="">
+                        </div>
+                        <div class="comment-body">
+                            <div class="comment-title">${comment.author}</div>
+                            <div class="comment-body">${comment.comment}</div>                        </div>
+                    </div>        
+                    `;
+                }
+                viewContainer.innerHTML += commentHTML;
+            });  
+            
+        }
+
+
+        });
         
-        f_comment.forEach(comment => {
-            commentHTML = '';
-            if (comment.post_id == blog.id) {
-                commentHTML +=  `
-                <div class="comment comment${blog.id}">
-                    <div class="comment-img-top">
-                        <img src="${comment.auth_avatar}" alt="">
-                    </div>
-                    <div class="comment-body">
-                        <div class="comment-title">${comment.author}</div>
-                        <div class="comment-body">${comment.comment}</div>
-                    </div>
-                </div>        
-                `;
-            }
-            viewContainer.innerHTML += commentHTML;
-        });       
-    });
     
 };
 
@@ -54,7 +61,7 @@ function displayUsers () {
     
         controlPanelHtml = ` 
             <div class="user-container">
-                <p class="user-name">User : ${user.username}</p>
+                <p class="user-name">${user.user_id} - ${user.username}</p>
                 <p class="user-password">Password: ${user.userpassword}</p>
             </div>
         `;
