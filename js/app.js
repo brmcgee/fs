@@ -1,26 +1,30 @@
+let viewContainer = elem('#viewPanel');
+let controlContainer = elem('#control_users');
+
+let commentHTML = '';
+let controlPanelHtml = '';
+
+
 function elem (str) {
     return document.querySelector(str);
-}
+};
+
+
+
 function displayAll () {
-
-    // viewContainer.innerHTML +=    `<div id="${blog.id}">`;
-
     f_blogs.forEach(blog => {
     
-        
-        let html = `
-        
-        <div class="card" id="blog${blog.id}">
-            <div class="card-img-top">
-                <img src="${blog.img}" alt="">
+        let html = ` 
+            <div class="card" id="blog${blog.id}">
+                <div class="card-img-top">
+                    <img src="${blog.img}" alt="">
+                </div>
+                <div class="card-body">
+                    <div class="card-title">${blog.title}</div>
+                    <div class="card-body">${blog.body}</div>
+                </div>
             </div>
-            <div class="card-body">
-                <div class="card-title">${blog.title}</div>
-                <div class="card-body">${blog.body}</div>
-            </div>
-        </div>
         `;
-    
         viewContainer.innerHTML += html;
         
         f_comment.forEach(comment => {
@@ -39,17 +43,25 @@ function displayAll () {
                 `;
             }
             viewContainer.innerHTML += commentHTML;
-        })       
-    })
+        });       
+    });
     
-    // viewContainer.innerHTML +=  `</div>`;
-    };
-
-let viewContainer = elem('#viewCont');
-let commentHTML = '';
+};
 
 
-
+function displayUsers () {
+    f_users.forEach(user => {
+    
+        controlPanelHtml = ` 
+            <div class="user-container">
+                <p class="user-name">User : ${user.username}</p>
+                <p class="user-password">Password: ${user.userpassword}</p>
+            </div>
+        `;
+        controlContainer.innerHTML += controlPanelHtml;
+    });
+    
+};
 
 // returns array of categories 
 let categories = [];
@@ -64,6 +76,5 @@ function getCategories (blogs) {
     
 }
 
-// getCategories(blogData)
-viewContainer.innerHTML += '<br>';
 displayAll();
+displayUsers();
