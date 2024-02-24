@@ -37,8 +37,8 @@
 @media (min-width: 250px){
     .wrapper {
         display: grid;
-
-        gap: 1px;
+        width: 100%;
+        gap: 5px;
         grid-template-areas: 
             "-topbar"
             "-main"
@@ -55,7 +55,7 @@
 
 @media (min-width: 660px) {
     .wrapper {
-        grid-template-columns:  4fr 8fr;
+        grid-template-columns:  5fr 8fr;
         gap: 5px;
         grid-template-areas: 
             "-topbar     -topbar"
