@@ -1,5 +1,5 @@
 let viewContainer = elem('#viewPanel');
-let controlContainer = elem('#control_users');
+let controlContainer = elem('#cp_users');
 
 let commentHTML = '';
 let controlPanelHtml = '';
@@ -19,6 +19,10 @@ function displayAll () {
 
             let html = ` 
                 <div class="card" id="blog${blog.id}">
+                    <div class="card-top">
+                        <img class = "card-top-img" src="${blog.author_avatar}" alt="">
+                        <div class="card-top-title">${blog.author}</div>
+                    </div>
                     <div class="card-img-top">
                         <img src="${blog.img}" alt="">
                     </div>
@@ -34,13 +38,13 @@ function displayAll () {
                 commentHTML = '';
                 if (comment.post_id == blog.id) {
                     commentHTML +=  `
-                    <div class="comment comment${blog.id}">
+                    <div class="comment">
                         <div class="comment-img-top">
                             <img src="${comment.auth_avatar}" alt="">
                         </div>
                         <div class="comment-body">
                             <div class="comment-title">${comment.author}</div>
-                            <div class="comment-body">${comment.comment}</div>                        </div>
+                            <div class="com-body">${comment.comment}</div>                        </div>
                     </div>        
                     `;
                 }
@@ -85,3 +89,26 @@ function getCategories (blogs) {
 
 displayAll();
 displayUsers();
+
+
+
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function fsDropdown(str) {
+    document.getElementById(str).classList.toggle("show");
+  }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      let dropdowns = document.getElementsByClassName("dropdown-content");
+      let i;
+      for (i = 0; i < dropdowns.length; i++) {
+        let openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
