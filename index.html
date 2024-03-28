@@ -6,7 +6,7 @@
     <title>Simply Blog View</title>
 </head>
 <body>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -64,7 +64,7 @@
             <img src="${b.author_avatar}" class="b-avatar" alt="" width="50">
             <p>${b.author}</p>
             <a href="#comments" onclick="showComments('comments')">
-                comments
+                <span class="material-symbols-outlined">comment</span>
                 <span class="count-badge">${b.comment_count}</span>
             </a>
           </div>
