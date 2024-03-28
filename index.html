@@ -3,60 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viewer App</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/grid.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
+    <title>Simply Blog View</title>
 </head>
 <body>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
-
-    <div class="wrapper">
-        <div class=" aside"></div>
-
-        <div class=" topbar"  id="controlPanel">
-
-            <div class="cp_categories">
-                <div class="dropdown">
-                    <button onclick="fsDropdown('userDropdown')" class="dropbtn">Users</button>
-                    <div id="userDropdown" class="dropdown-content">
-                        <div id="cp_users"></div> 
-                    </div>
-                  </div>
-            </div>
+    <div id="root"></div>
 
 
 
+
+
+
+
+
+<script src="https://brmcgee.github.io/fs/blog_data.js"></script>
+
+<script>
+    let index = 0;
+    let root = document.getElementById('root');
+    document.addEventListener("keydown", (e) => {
+
+
+        if (e.key == "ArrowRight" || e.key == "ArrowDown") {
+            if (index < 1) {
+                
+                index = f_blogs.length;
+            }
+
+            root.innerHTML = make(f_blogs[index--], index)
             
-        </div>
-
-        <div class="cont main" id="viewPanel"></div>
-
+        }
         
-        <div class="ad">
+        if (e.key == "ArrowLeft" || e.key == "ArrowUp") {
+
+            if (index > f_blogs.length-1) {
+                index = 0;
+            }
+            root.innerHTML = make(f_blogs[index++], index)
+        }
+    })
+
+    function make(b, i) {
+
+    let html = 
+        `
+        <div class="blog">
+          <div class="b-img-top">
+            <img src="${b.img}" class="b-img" alt="" width="250">
+          </div>
+          <div class="b-body">
+            <h3>${b.title}</h3>
+            <p>${b.body}</p>
+          </div>
+          <div class="b-footer">
+            <img src="${b.author_avatar}" class="b-avatar" alt="" width="50">
+            <p>${b.author}</p>
+            <button onclick="showComments('comments')">
+                comments
+                <span class="count-badge">${b.comment_count}</span>
+            </butotn>
+          </div>
+        </div>
+        
+        <div class="comment-group" id="comments">
+        `;
+
+
+        f_comment.forEach(c => {
+            if (c.post_id == b.id) {
+                html += makeComment(c);
+            }
+        });
+
+        html += '</div>'
+    return html;
+
+    }
+
+
+    document.getElementById('root').innerHTML = make(f_blogs[1])
+
+    function makeComment (c){
+        let html = 
+        `
+        <div class="comment">
+        <div class="c-img">
+            <img src="${c.auth_avatar}" class="b-avatar" alt="" width="50">
+        </div>
+        <div class="c-body">
+            <p class="c-author">${c.author}</p>
+            <p class="c-comment">${c.comment}</p>
         </div>
     </div>
 
-    
-    <script src="blog_data.js"></script>
-    <!-- <script src="js/blogData.js"></script> -->
-    <script src="js/app.js"></script>
-
-
-    <script>
-
-    </script>
+        `;
+        return html;
+    }
 
 
 
-    <script>
+    function showComments(str) {
+        let commentElem = document.getElementById(str);
+        commentElem.classList.toggle('show');
+    }
+</script>
 
 
-
-
-    </script>
 </body>
-</html> 
+</html>
