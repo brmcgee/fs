@@ -1,0 +1,179 @@
+*{
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.intro {
+    height:calc(20px + 12vw);
+    width: 100%;
+    background-color: rgb(175, 175, 175); 
+    text-align: center;
+    padding: 24px calc(2px + 4vw);
+    background-image: url('https://wallpapercave.com/wp/P3sBn5T.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+
+.intro h1 {
+    font-size:calc(12px + 4vw);
+    color: rgb(255, 255, 255);
+}
+
+
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    flex-wrap: wrap;
+    max-width: 400px;
+    margin: auto;
+    
+}
+
+.blog {
+    max-width: 39rem;
+    width:30rem;
+    border: 0px solid rgba(99, 99, 99, 0.4);
+    box-shadow: 0 0 12px rgba(39, 39, 39, 0.4);
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.blog:hover {
+    box-shadow: 0 0 12px rgba(39, 39, 39, 0.44);
+    transition: all .2s;
+}
+
+.b-img {
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+.blog:hover .b-img {
+    opacity: .92;
+    transform: scale(1.0009);
+    transition: all .2s;
+}
+
+.b-body {
+    padding: 8px 12px;
+}
+.b-body h3 {
+    font-weight: 400;
+    font-family: "Anton", sans-serif;
+    font-size: 22px;
+    font-style: normal;
+}
+.b-body p {
+    text-indent: 22px;
+    text-align: justify;
+}
+
+.b-footer {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 8px 12px;
+}
+.b-footer p {
+    font-weight: 700;
+    font-family: 'Manrope' ;
+    color: #272727;
+}
+
+.b-avatar {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+.b-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.b-footer p {
+    padding: 2px 12px;
+}
+
+.b-footer button {
+    background-color: rgb(22, 128, 189);
+    padding: 10px 16px;
+    border-radius: 4px;
+    border: 0;
+    color: #e7e7e7;
+}
+
+.count-badge {
+    background-color: red;
+    color: white;
+    padding: 4px 8px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.comment {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color: #e7e7e7;
+    border-radius: 6px;
+    width: 18rem;
+    max-width: 19rem;
+    margin: 0;
+    margin-top: 2px;
+    margin-left: 100px;
+}
+
+
+.c-img {
+ padding: 0px 6px;
+}
+
+.c-img img {
+    width:45px;
+    height:45px;
+}
+
+.c-body{
+  padding: 8px 12px;
+}
+
+.c-author {
+    font-weight: 700;
+    margin: 0;
+}
+.c-comment {
+    margin: 0;
+    margin-top: 2px;
+}
+.comment-group {
+    /* display: none; */
+    position: relative;
+    left: -30px;
+    opacity: 0;
+    
+}
+
+.show {
+    /* display: block; */
+    opacity: 1;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    transition: all .5s;
+}
+.buttons {
+    max-width: 500px;
+    margin: auto;
+    display:flex;
+    justify-content: space-between;
+}
